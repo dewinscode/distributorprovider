@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login & Registration with OTP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #121212;
+      margin: 0;
+      color: #ededed;
+    }
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #262626;
+      padding: 0 1.5em;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 64px;
+    }
+    .navbar .logo-img {
+      height: 44px;
+      width: auto;
+      margin-right: 12px;
+      border-radius: 50%;
+      vertical-align: middle;
+      background: #232323;
+    }
+    .navbar .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.28em;
+      font-weight: 700;
+      color: #FFD600;
+      letter-spacing: .03em;
+      text-decoration: none;
+    }
+    .navbar .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .navbar .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 10px 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .navbar .nav-links a:hover {
+      background: #FFD600;
+      color: #232323;
+    }
+    .navbar .icon {
+      display: none;
+      color: #FFD600;
+      font-size: 2.1em;
+      cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 64px;
+        width: 100%;
+        background: #232323;
+        padding: 12px 0;
+        gap: 0;
+        z-index: 9;
+      }
+      .navbar .nav-links.active {
+        display: flex;
+      }
+      .navbar .icon {
+        display: block;
+      }
+    }
+    /* LOGO HEADER */
+    .logo-row {
+      margin: 34px 0 6px 0;
+      text-align: center;
+    }
+    .logo-row .logo-img {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      margin-bottom: 7px;
+    }
+    .brand-title {
+      font-size: 1.65em;
+      font-weight: 700;
+      color: #FFD600;
+    }
+    .subtitle {
+      color: #FFD600;
+      font-size: 1.02em;
+      font-weight: 400;
+    }
+    .highlight {
+      color: #FFD600;
+      font-weight: 700;
+    }
+    /* CARD STYLES */
+    .container {
+      width: 380px;
+      margin: 38px auto 0 auto;
+      background: #232323;
+      border-radius: 18px;
+      box-shadow: 0 1px 14px rgba(0,0,0,0.12);
+      padding: 38px 30px 24px 30px;
+      max-width: 94vw;
+    }
+    h2, h3 {
+      text-align: center;
+      color: #FFD600;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    label {
+      margin-bottom: 7px;
+      font-weight: 500;
+      color: #FFD600;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      margin-bottom: 16px;
+      padding: 11px 10px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #1b1b1b;
+      color: #ffd600;
+      font-size: 1em;
+      font-family: inherit;
+      transition: border .18s;
+    }
+    input:focus {
+      outline: none;
+      border: 1.8px solid #FFD600;
+      background: #191919;
+      color: #FFD600;
+    }
+    button {
+      background: #FFD600;
+      color: #232323;
+      padding: 12px 0;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.03em;
+      margin-bottom: 8px;
+      transition: background 0.18s;
+    }
+    button:hover {
+      background: #ffe651;
+      color: #1b1b1b;
+    }
+    .error {
+      color: #ff4545;
+      background: #1b1212;
+      text-align: center;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      font-size: .97em;
+      padding: 2.5px 0;
+    }
+    .hidden { display: none; }
+
+    #successMsg {
+      background: #161616;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      color: #98fada;
+    }
+    @media (max-width: 500px) {
+      .container {
+        padding: 23px 6vw 18px 6vw;
+        width: 96vw;
+        margin: 17px auto 0 auto;
+      }
+      .logo-row .logo-img {
+        width: 54px;
+        height: 54px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR START -->
+<nav class="navbar">
+  <a href="navbar.html" class="navbar-brand">
+    <img src="dblogo.png.jpeg" alt="Logo" class="logo-img" />
+    Distributors provider
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="navbar.html">Home</a>
+    <a href="#">Brands</a>
+    <a href="categorytest.html">Categories</a>
+    <a href="#">About</a>
+    <a href="contactpage.html">Contact</a>
+  </div>
+  <span class="icon" onclick="toggleNavbar()">&#9776;</span>
+</nav>
+<!-- NAVBAR END -->
+
+<div class="logo-row">
+  <img src="dblogo.png.jpeg" alt="Logo" class="logo-img">
+  <div class="brand-title">Distributors provider</div>
+  <div class="subtitle">all type of <span style="font-size:.97em;"> b2b</span></div>
+</div>
+
+<div class="container">
+  <h2>Register or Login</h2>
+  <form id="registerForm">
+    <label for="phone">Phone Number</label>
+    <input type="tel" id="phone" name="phone" placeholder="Enter phone number" required />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter email" required />
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" placeholder="Create password" required />
+    <button type="button" onclick="showOtpForm()">Register &amp; Send OTP</button>
+    <div class="error" id="registerError"></div>
+  </form>
+  <form id="otpForm" class="hidden">
+    <h3>Verify OTP</h3>
+    <label for="otp">Enter OTP sent to your phone/email</label>
+    <input type="text" id="otp" name="otp" maxlength="6" placeholder="Enter OTP" required />
+    <button type="button" onclick="verifyOtp()">Submit OTP</button>
+    <div class="error" id="otpError"></div>
+  </form>
+  <div id="successMsg" class="hidden"><h3>Registration Successful!</h3></div>
+</div>
+
+<script>
+  function toggleNavbar() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+  function showOtpForm() {
+    // In a real setup, send registration data and OTP to user here
+    document.getElementById('registerForm').classList.add('hidden');
+    document.getElementById('otpForm').classList.remove('hidden');
+  }
+  function verifyOtp() {
+    let otp = document.getElementById('otp').value;
+    // This is for demo; production logic should verify with backend
+    if(otp === "123456") {
+      document.getElementById('otpForm').classList.add('hidden');
+      document.getElementById('successMsg').classList.remove('hidden');
+    } else {
+      document.getElementById('otpError').innerText = 'Invalid OTP! Try 123456 for demo.';
+    }
+  }
+</script>
+</body>
+</html>

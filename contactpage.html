@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Distributors provider</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: #121212;
+      margin: 0;
+      color: #ededed;
+    }
+    /* NAVBAR */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #262626;
+      padding: 0 1.5em;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      height: 64px;
+    }
+    .navbar .logo-img {
+      height: 44px;
+      width: auto;
+      margin-right: 12px;
+      border-radius: 50%;
+      background: #232323;
+    }
+    .navbar .navbar-brand {
+      display: flex;
+      align-items: center;
+      font-size: 1.28em;
+      font-weight: 700;
+      color: #FFD600;
+      letter-spacing: .03em;
+      text-decoration: none;
+    }
+    .navbar .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .navbar .nav-links a {
+      color: #fff;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 10px 6px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .navbar .nav-links a:hover {
+      background: #FFD600;
+      color: #232323;
+    }
+    .navbar .icon {
+      display: none;
+      color: #FFD600;
+      font-size: 2.1em;
+      cursor: pointer;
+    }
+    @media (max-width: 760px) {
+      .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 64px;
+        width: 100%;
+        background: #232323;
+        padding: 12px 0;
+        gap: 0;
+        z-index: 9;
+      }
+      .navbar .nav-links.active {
+        display: flex;
+      }
+      .navbar .icon {
+        display: block;
+      }
+    }
+    .logo-row {
+      margin: 34px 0 10px 0;
+      text-align: center;
+    }
+    .logo-row .logo-img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+    .brand-title {
+      font-size: 1.6em;
+      font-weight: 700;
+      color: #FFD600;
+    }
+    .subtitle {
+      color: #FFD600;
+      font-size: 1.05em;
+      font-weight: 400;
+    }
+    .container {
+      width: 440px;
+      margin: 30px auto 0 auto;
+      background: #232323;
+      border-radius: 18px;
+      box-shadow: 0 1px 14px rgba(0,0,0,0.12);
+      padding: 36px 30px 20px 30px;
+      max-width: 96vw;
+    }
+    h2 {
+      text-align: center;
+      color: #FFD600;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    label {
+      margin-bottom: 7px;
+      font-weight: 500;
+      color: #FFD600;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+    }
+    input, textarea {
+      margin-bottom: 16px;
+      padding: 10px 9px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      background: #1b1b1b;
+      color: #ffd600;
+      font-size: 1em;
+      font-family: inherit;
+      transition: border .18s;
+      resize: none;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border: 1.8px solid #FFD600;
+      background: #191919;
+      color: #FFD600;
+    }
+    button {
+      background: #FFD600;
+      color: #232323;
+      padding: 12px 0;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 1.03em;
+      margin-bottom: 8px;
+      transition: background 0.18s;
+    }
+    button:hover {
+      background: #ffe651;
+      color: #1b1b1b;
+    }
+    .contact-details {
+      margin-top: 18px;
+      color: #b6b6b6;
+      font-size: 1em;
+      padding: 14px 0 0 0;
+      border-top: 1px solid #444;
+    }
+    .highlight {
+      color: #FFD600;
+      font-weight: 700;
+    }
+    @media (max-width: 530px) {
+      .container {
+        padding: 20px 5vw 13px 5vw;
+        width: 98vw;
+        margin: 16px auto 0 auto;
+      }
+      .logo-row .logo-img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+    footer {
+      background: #232323;
+      padding: 18px;
+      text-align: center;
+      color: #ffd600;
+      font-size: 1em;
+      margin-top: 30px;
+    }
+    .success-message {
+      background: #161616;
+      border-radius: 8px;
+      padding: 14px;
+      text-align: center;
+      color: #98fada;
+      margin-bottom: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR START -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-brand">
+    <img src="dblogo.png.jpeg" alt="Logo" class="logo-img" />
+    Distributors provider
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="navbar.html">Home</a>
+    <a href="#">Brands</a>
+    <a href="categorytest.html">Categories</a>
+    <a href="#">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="loginpage2.html">Register</a>
+  </div>
+  <span class="icon" onclick="toggleNavbar()">&#9776;</span>
+</nav>
+<!-- NAVBAR END -->
+
+<div class="logo-row">
+  <img src="dblogo.png.jpeg" alt="Logo" class="logo-img">
+  <div class="brand-title">Distributors provider</div>
+  <div class="subtitle">all type of <span style="font-size:.97em;"> b2b</span></div>
+</div>
+
+<div class="container">
+  <h2>Contact Us</h2>
+  <form id="contactForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" placeholder="Your Name" required />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" placeholder="Your Email" required />
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required />
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="4" placeholder="Type your message..." required></textarea>
+    <button type="submit">Send Message</button>
+    <div id="successMsg" class="success-message" style="display:none;">Thank you for contacting us! We will get back to you soon.</div>
+  </form>
+  <div class="contact-details">
+    <div><span class="highlight">Email:</span> support@distributorprovider.com</div>
+    <div><span class="highlight">Phone:</span> +91-9773858931</div>
+    <div><span class="highlight">Office:</span> RC pro business buddies pvt.ltd.<br>B-87,SECTOR-63,NOIDA,UTTARPRADESH,Pin 201301</div>
+  </div>
+</div>
+
+<footer>
+  distributorprovider.com &nbsp; | &nbsp; © 2025 RC pro business buddies pvt.ltd.
+</footer>
+
+<script>
+  function toggleNavbar() {
+    document.getElementById('navLinks').classList.toggle('active');
+  }
+  document.getElementById('contactForm').onsubmit = function(e) {
+    e.preventDefault();
+    document.getElementById('successMsg').style.display = 'block';
+    setTimeout(function(){
+      document.getElementById('successMsg').style.display = 'none';
+      document.getElementById('contactForm').reset();
+    }, 3500);
+  }
+</script>
+</body>
+</html>
